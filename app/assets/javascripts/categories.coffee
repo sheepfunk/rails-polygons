@@ -9,6 +9,10 @@
   addCategory: (category) ->
     categories = React.addons.update(@state.categories, { $push: [category] })
     @setState categories: categories
+  deleteCategory: (category) ->
+    index = @state.categories.indexOf category
+    categories = React.addons.update(@state.categories, { $splice: [[index, 1]] })
+    @replaceState categories: categories
   render: ->
     React.DOM.div
       className: 'categories'
@@ -25,4 +29,4 @@
               React.DOM.th null, 'Amount'
           React.DOM.tbody null,
             for category in @state.categories
-              React.createElement Category, key: category.id, category: category
+              React.createElement Category, key: category.id, category: category, handleDeleteCategory: @deleteCategory
