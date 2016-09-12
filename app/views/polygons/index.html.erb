@@ -1,0 +1,13 @@
+<h4> My Polygons</h4>
+<ul>
+  <% @polygons.each do | polygon | %>
+      <li>
+        <%= polygon.name %>
+      </li>
+  <% end %>
+</ul>
+<h4> Create a new Polygon </h4>
+<%= form_for Polygon.new, url: {action: "create"} do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit "Create" %>
+<% end %>
