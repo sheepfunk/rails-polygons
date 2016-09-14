@@ -23,7 +23,7 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name, :amount)
+    params.require(:category).permit(:name, :amount, :polygon_id).merge(polygon_id:params[:polygon_id])
   end
-
+  
 end

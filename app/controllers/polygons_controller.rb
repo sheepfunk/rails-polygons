@@ -5,7 +5,7 @@ class PolygonsController < ApplicationController
 
   def create
     @polygon = Polygon.create(polygon_params)
-    redirect_to categories_url
+    redirect_to polygon_categories_url(@polygon)
   end
 
   private

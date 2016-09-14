@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'polygons/index'
-
   root 'home#index'
 
   devise_for :users
 
-  resources :categories
-
   resources :records
 
-  resources :polygons
+  resources :polygons do
+    resources :categories
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
