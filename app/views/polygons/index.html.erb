@@ -1,11 +1,16 @@
 <h4> My Polygons</h4>
-<ul>
+<table>
   <% @polygons.each do | polygon | %>
-      <li>
-        <%= polygon.name %>
-      </li>
+      <tr>
+        <td>
+          <%= polygon.name %>
+        </td>
+        <td>
+          <%= link_to 'Destroy', polygon,  method: :delete %>
+        </td>
+      </tr>
   <% end %>
-</ul>
+</table>
 <h4> Create a new Polygon </h4>
 <%= form_for Polygon.new, url: {action: "create"} do |f| %>
     <%= f.text_field :name %>

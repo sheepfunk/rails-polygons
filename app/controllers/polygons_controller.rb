@@ -8,6 +8,12 @@ class PolygonsController < ApplicationController
     redirect_to polygon_categories_url(@polygon)
   end
 
+  def destroy
+    @polygon = Polygon.find(params[:id])
+    @polygon.destroy
+    redirect_to polygons_url
+  end
+
   private
 
   def polygon_params
